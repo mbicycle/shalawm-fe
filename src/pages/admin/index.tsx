@@ -11,7 +11,7 @@ export const AdminPage = () => {
     setFiles((p) => p.filter((file) => file.name !== fileName));
 
   return (
-    <div className="w-full h-full flex flex-col items-center gap-6 py-8 max-w-3xl mx-auto">
+    <div className="w-full h-full flex flex-col items-center gap-6 p-8 max-w-3xl mx-auto">
       <DropZone onFileAdd={addFile} />
       <ul className="w-full">
         {files.length === 0 && <li>No files</li>}

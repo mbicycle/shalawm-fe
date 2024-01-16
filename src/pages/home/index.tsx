@@ -9,8 +9,8 @@ export const HomePage = () => {
   const { messages, asking, ask, prompt, changePrompt } = useChat();
 
   return (
-    <div className="w-full h-full flex flex-col items-center gap-6 py-8 max-w-3xl mx-auto">
-      <ul className="grow w-full relative flex flex-col gap-4 overflow-auto pr-4 scrollbar-thin scrollbar-thumb-sky-900/50 scrollbar-track-rounded-md scrollbar-track-slate-100/10">
+    <div className="w-full h-full flex flex-col items-center gap-6 p-5 lg:px-0 lg:py-8 max-w-3xl mx-auto">
+      <ul className="grow w-full relative flex flex-col gap-8 overflow-auto lg:pr-4 scrollbar-thin scrollbar-thumb-sky-900/50 scrollbar-track-rounded-md scrollbar-track-slate-100/10">
         {messages.length === 0 && (
           <LoadingSpinner className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-150" />
         )}
@@ -18,7 +18,7 @@ export const HomePage = () => {
           <li
             key={id}
             className={cn(
-              "bg-white  flex flex-col gap-1 items-center border border-white/20 rounded-xl max-w-[45%]  self-start py-1 px-4 relative",
+              "bg-white  flex flex-col gap-1 items-center border border-white/20 rounded-xl self-start py-1 px-4 relative",
               {
                 "self-end bg-cyan-100": from !== "ai",
               }
