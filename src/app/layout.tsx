@@ -109,7 +109,7 @@ const TopBar = ({ className }: { className?: string }) => (
 );
 
 export const RootLayout = () => (
-  <div className="h-screen flex flex-col lg:flex-row bg-gradient-to-tr from-cyan-500 to-sky-800 text-slate-200 font-open">
+  <div className="h-[100dvh] flex flex-col lg:flex-row bg-gradient-to-tr from-cyan-500 to-sky-800 text-slate-200 font-open">
     <SideBar className="hidden lg:block" />
     <TopBar className="flex lg:hidden" />
     <main className="grow">
