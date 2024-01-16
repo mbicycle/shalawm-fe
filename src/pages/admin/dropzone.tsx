@@ -8,8 +8,8 @@ type Props = {
 export const DropZone = ({ onFileAdd }: Props) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     onFileAdd(acceptedFiles);
-    console.log(acceptedFiles);
   }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
@@ -18,7 +18,7 @@ export const DropZone = ({ onFileAdd }: Props) => {
       className={cn(
         "0 border border-dashed rounded-md p-4 w-full h-64 flex items-center justify-center",
         {
-          "bg-blue-700/50": isDragActive,
+          "bg-sky-700/50": isDragActive,
         }
       )}
     >

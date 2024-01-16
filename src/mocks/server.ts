@@ -4,7 +4,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const history: HistoryType = [
   {
-    id: "abc",
+    id: Math.random().toString(),
     from: "ai",
     text: "Hello! I'm Shalawm, AI Powered Lawyer! What would you want to ask?",
     timestamp: getTime(),

@@ -11,7 +11,7 @@ export const useChat = () => {
     setPrompt(value);
 
   const ask = async () => {
-    if (prompt) {
+    if (prompt && !asking) {
       const myMessage = {
         id: Date.now().toString(),
         text: prompt,
