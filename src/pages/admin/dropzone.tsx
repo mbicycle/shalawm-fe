@@ -10,7 +10,10 @@ export const DropZone = ({ onFileAdd }: Props) => {
     onFileAdd(acceptedFiles);
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    maxFiles: 10,
+  });
 
   return (
     <div
