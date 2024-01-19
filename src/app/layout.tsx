@@ -1,5 +1,6 @@
 import { cn } from "@/shared/lib/utils";
-
+import Logo from "./logo.svg";
+import ShortLogo from "./favicon.png";
 import { ChevronRight, HomeIcon, UserRoundCog } from "lucide-react";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
@@ -30,6 +31,15 @@ const SideBar = ({ className }: { className?: string }) => {
         />
       </button>
       <ul className="flex flex-col gap-4">
+        <img
+          src={expanded ? Logo : ShortLogo}
+          alt="logo"
+          className={cn("shrink-0 opacity-0 transition-opacity", {
+            "opacity-100 min-w-[104px]": expanded,
+            "w-6 h-6 self-center opacity-100": !expanded,
+          })}
+        />
+
         <NavLink
           to="/"
           className={({ isActive }) =>
