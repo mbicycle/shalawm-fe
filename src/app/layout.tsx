@@ -12,7 +12,7 @@ const SideBar = ({ className }: { className?: string }) => {
   return (
     <nav
       className={cn(
-        "shadow-b shadow-md py-8 px-4 relative w-[72px] transition-all",
+        "shadow-b shadow-md py-8 px-4 relative w-[72px] transition-all text-white",
         className,
         {
           "w-[8.5rem]": expanded,
@@ -109,7 +109,7 @@ const TopBar = ({ className }: { className?: string }) => (
 );
 
 export const RootLayout = () => (
-  <div className="h-[100dvh] flex flex-col lg:flex-row bg-gradient-to-tr from-cyan-500 to-sky-800 text-slate-200 font-open">
+  <div className="h-[100dvh] flex flex-col lg:flex-row bg-primary font-open">
     <SideBar className="hidden lg:block" />
     <TopBar className="flex lg:hidden" />
     <main className="grow">

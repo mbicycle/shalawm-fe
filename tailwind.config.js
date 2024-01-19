@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        primary: "#3D91EC",
+      },
       fontFamily: {
         open: ['"Open Sans"', "sans-serif"],
         // Add more custom font families as needed

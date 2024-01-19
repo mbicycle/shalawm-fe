@@ -24,8 +24,14 @@ export const HomePage = () => {
               }
             )}
           >
-            <div>
-              <span>{from === "ai" ? "👨🏻‍⚖️ " : "👨🏻‍💼 "}</span>
+            <div className="flex items-center gap-2">
+              {from === "ai" ? (
+                <div className="w-6 h-6 flex justify-center items-center bg-primary text-white rounded-full">
+                  ש{" "}
+                </div>
+              ) : (
+                <span>👨🏻‍💼 </span>
+              )}
               <span className="text-black">{text}</span>
             </div>
             <span
@@ -43,15 +49,17 @@ export const HomePage = () => {
 
         <li
           className={cn(
-            "opacity-0 translate-opacity animate-bounce flex flex-col gap-1 items-center border border-white/20 rounded-xl self-start py-1 px-4 relative",
+            "bg-white opacity-0 translate-opacity animate-bounce flex flex-col gap-1 items-center border border-white/20 rounded-xl self-start py-1 px-4 relative",
             {
               "opacity-100": asking,
             }
           )}
         >
-          <div>
-            <span>👨🏻‍⚖️ </span>
-            <span className="text-white">Answering...</span>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 flex justify-center items-center bg-primary text-white rounded-full">
+              ש{" "}
+            </div>
+            <span>Answering...</span>
           </div>
         </li>
       </ul>
