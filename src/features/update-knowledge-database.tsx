@@ -1,6 +1,5 @@
 import { updateKnowledgeBase } from "@/entities/file";
 import { Button } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useSnackbar } from "notistack";
