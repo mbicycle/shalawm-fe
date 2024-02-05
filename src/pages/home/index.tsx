@@ -1,6 +1,5 @@
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
-import { LoadingSpinner } from "@/shared/ui/spinner";
 import { SendHorizonal } from "lucide-react";
 import { useChat } from "./use-chat";
 import { cn } from "@/shared/lib/utils";
