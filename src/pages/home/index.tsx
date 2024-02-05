@@ -45,7 +45,7 @@ export const HomePage = () => {
                 )}
                 <span className="text-black">{text}</span>
               </div>
-              <ul className="flex justify-center flex-col  bg-slate-200 transition-opacity rounded-md opacity-0 p-2 border border-slate-600 shadow-lg group-hover:opacity-100 absolute left-1/2 -translate-x-1/2 top-[calc(100%+1rem)]">
+              <ul className="flex justify-center flex-col  bg-slate-200 transition-opacity rounded-md opacity-0 p-2 border border-slate-600 shadow-lg group-hover:opacity-100 absolute left-1/2 -translate-x-1/2 top-[calc(100%+1rem)] z-10">
                 {sources.map((source, index) => (
                   <li key={source} className="flex whitespace-nowrap">
                     {index + 1 + ". " + source}
