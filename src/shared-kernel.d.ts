@@ -1,8 +1,8 @@
 type Message = {
-  id: string;
   text: string;
   from: string;
   timestamp: string;
+  sources: string[];
 };
 
 type HistoryType = Message[];

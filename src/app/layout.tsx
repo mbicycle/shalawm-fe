@@ -44,7 +44,7 @@ const SideBar = ({ className }: { className?: string }) => {
           to="/"
           className={({ isActive }) =>
             cn(
-              "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2",
+              "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
               {
                 "bg-sky-700": isActive,
               }
@@ -64,7 +64,7 @@ const SideBar = ({ className }: { className?: string }) => {
           to="/admin"
           className={({ isActive }) =>
             cn(
-              "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2",
+              "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
               {
                 "bg-sky-700": isActive,
               }
@@ -91,7 +91,7 @@ const TopBar = ({ className }: { className?: string }) => (
       to="/"
       className={({ isActive }) =>
         cn(
-          "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2",
+          "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
           {
             "bg-sky-700": isActive,
           }
@@ -105,7 +105,7 @@ const TopBar = ({ className }: { className?: string }) => (
       to="/admin"
       className={({ isActive }) =>
         cn(
-          "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2",
+          "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
           {
             "bg-sky-700": isActive,
           }

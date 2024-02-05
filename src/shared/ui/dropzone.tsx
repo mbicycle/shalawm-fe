@@ -19,7 +19,7 @@ export const DropZone = ({ onFileAdd }: Props) => {
     <div
       {...getRootProps()}
       className={cn(
-        "0 border border-dashed rounded-md p-4 w-full h-64 flex items-center justify-center",
+        "border border-dashed rounded-md p-4 w-2/3 h-48 flex items-center justify-center text-white",
         {
           "bg-sky-700/50": isDragActive,
         }
