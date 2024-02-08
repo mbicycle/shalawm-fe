@@ -32,7 +32,7 @@ export const HomePage = () => {
             {
               message,
               message_type,
-              time_stamp,
+              timestamp,
               sources,
               LLMResponseEvaluationMetrics,
             },
@@ -86,7 +86,7 @@ export const HomePage = () => {
                   }
                 )}
               >
-                {getTime(time_stamp)}
+                {getTime(timestamp)}
               </span>
             </li>
           )

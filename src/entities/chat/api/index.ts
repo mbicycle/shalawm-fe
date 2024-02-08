@@ -3,16 +3,16 @@ import { instance } from "@/shared/api/instance";
 export const askChatBot = ({
   message_type = "HUMAN_MESSAGE",
   message,
-  time_stamp,
+  timestamp,
 }: {
   message_type: "HUMAN_MESSAGE";
   message: string;
-  time_stamp: string;
+  timestamp: string;
 }) =>
   instance.post<AskChatResponse>("/chat/ask", {
     message_type,
     message,
-    time_stamp,
+    timestamp,
   });
 
 export const clearChatHistory = () =>

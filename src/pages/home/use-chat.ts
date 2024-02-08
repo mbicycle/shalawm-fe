@@ -44,7 +44,7 @@ export const useChat = () => {
     mutate({
       message: prompt,
       message_type: "HUMAN_MESSAGE",
-      time_stamp: getISOTimeStamp(),
+      timestamp: getISOTimeStamp(),
     });
 
   return {
