@@ -1,11 +1,11 @@
 import { instance } from "@/shared/api/instance";
 
 export const askChatBot = ({
-  message_type = "HUMAN_MESSAGE",
+  message_type = "human",
   message,
   timestamp,
 }: {
-  message_type: "HUMAN_MESSAGE";
+  message_type: "human";
   message: string;
   timestamp: string;
 }) =>
