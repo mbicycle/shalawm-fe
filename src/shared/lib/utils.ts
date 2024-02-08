@@ -5,4 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getTime = () => new Date().toLocaleString("en-GB").split(" ")[1];
+export const getTime = (time: string) => new Date(time).toLocaleTimeString();
+
+export const getISOTimeStamp = () => new Date().toISOString();

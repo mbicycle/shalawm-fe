@@ -3,6 +3,7 @@ type Message = {
   from: string;
   timestamp: string;
   sources: string[];
+  LLMResponseEvaluationMetrics: Record<string, unknown>;
 };
 
 type HistoryType = Message[];

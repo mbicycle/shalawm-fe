@@ -1,59 +1,55 @@
-import { askChatBot, clearChatHistory } from "@/entities/chat";
-import { getTime } from "@/shared/lib/utils";
-import { useMutation } from "@tanstack/react-query";
-import { ChangeEvent, useEffect, useState } from "react";
+import { askChatBot, clearChatHistory, getChatHistory } from "@/entities/chat";
+import { getISOTimeStamp } from "@/shared/lib/utils";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { ChangeEvent, useState } from "react";
 
 export const useChat = () => {
+  const client = useQueryClient();
+
   const { mutate, isPending } = useMutation({
     mutationFn: askChatBot,
-    onMutate: () => {
-      setMessages((p) => [
-        ...p,
-        { from: "you", text: prompt, timestamp: getTime(), sources: [] },
-      ]);
-      setPrompt("");
-    },
+    onMutate: () => setPrompt(""),
     onSuccess: ({ data }) => {
-      setMessages((p) => [
-        ...p,
-        {
-          from: "ai",
-          text: data.llm_response,
-          timestamp: getTime(),
-          sources: data.sources,
-        },
-      ]);
+      client.setQueryData(["history"], () => {
+        const history = data._history;
+        const lastResponse = history[history.length - 1] as HistoryItem;
+        lastResponse.sources = data._sources;
+        lastResponse.LLMResponseEvaluationMetrics =
+          data._llm_response_eval_result;
+
+        return history;
+      });
     },
+  });
+
+  const {
+    data: messages = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["history"],
+    queryFn: getChatHistory,
   });
 
   const { mutate: clear, isPending: clearing } = useMutation({
     mutationFn: clearChatHistory,
-    onSuccess: () => {
-      setMessages([]);
-      setPrompt("");
-      localStorage.removeItem("history");
-    },
+    onSuccess: () => refetch(),
   });
-  const [messages, setMessages] = useState<HistoryType>([]);
 
   const [prompt, setPrompt] = useState("");
   const changePrompt = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     setPrompt(value);
 
-  const ask = () => mutate({ user_query: prompt });
-
-  useEffect(() => {
-    if (messages.length !== 0)
-      localStorage.setItem("history", JSON.stringify(messages));
-  }, [messages]);
-
-  useEffect(() => {
-    const history = localStorage.getItem("history");
-    if (history) setMessages(JSON.parse(history));
-  }, []);
+  const ask = () =>
+    mutate({
+      message: prompt,
+      message_type: "HUMAN_MESSAGE",
+      time_stamp: getISOTimeStamp(),
+    });
 
   return {
     messages,
+    loading: isLoading,
     asking: isPending,
     ask,
     prompt,
