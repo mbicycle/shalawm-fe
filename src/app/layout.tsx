@@ -122,7 +122,7 @@ export const RootLayout = () => (
   <div className="h-[100dvh] flex flex-col lg:flex-row bg-primary font-open">
     <SideBar className="hidden lg:block" />
     <TopBar className="flex lg:hidden" />
-    <main className="grow">
+    <main className="grow overflow-auto">
       <Outlet />
     </main>
   </div>

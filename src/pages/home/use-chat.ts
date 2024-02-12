@@ -8,7 +8,20 @@ export const useChat = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: askChatBot,
-    onMutate: () => setPrompt(""),
+    onMutate: () => {
+      client.setQueryData(["history"], (prev: HistoryItem[]) => {
+        const draft = [
+          ...prev,
+          {
+            message_type: "human",
+            message: prompt,
+            timestamp: getISOTimeStamp(),
+          },
+        ];
+        return draft;
+      });
+      setPrompt("");
+    },
     onSuccess: ({ data }) => {
       client.setQueryData(["history"], () => {
         const history = data._history;
