@@ -1,7 +1,12 @@
 import { cn } from "@/shared/lib/utils";
 import Logo from "./logo.svg";
 import ShortLogo from "./favicon.png";
-import { ChevronRight, HomeIcon, UserRoundCog } from "lucide-react";
+import {
+  ChevronRight,
+  HomeIcon,
+  UserRoundCog,
+  ListOrdered,
+} from "lucide-react";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -80,6 +85,26 @@ const SideBar = ({ className }: { className?: string }) => {
             Admin
           </span>
         </NavLink>
+        <NavLink
+          to="/batch"
+          className={({ isActive }) =>
+            cn(
+              "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
+              {
+                "bg-sky-700": isActive,
+              }
+            )
+          }
+        >
+          <ListOrdered className="shrink-0" />
+          <span
+            className={cn("opacity-100 transition-opacity", {
+              "opacity-0": !expanded,
+            })}
+          >
+            Batch
+          </span>
+        </NavLink>
       </ul>
     </nav>
   );
@@ -114,6 +139,20 @@ const TopBar = ({ className }: { className?: string }) => (
     >
       <UserRoundCog className="shrink-0" />
       <span className={cn("opacity-100 transition-opacity", {})}>Admin</span>
+    </NavLink>
+    <NavLink
+      to="/batch"
+      className={({ isActive }) =>
+        cn(
+          "rounded-md p-2 hover:bg-sky-800 transition-colors flex items-center gap-2 text-white",
+          {
+            "bg-sky-700": isActive,
+          }
+        )
+      }
+    >
+      <ListOrdered className="shrink-0" />
+      <span className={cn("opacity-100 transition-opacity", {})}>Batch</span>
     </NavLink>
   </nav>
 );

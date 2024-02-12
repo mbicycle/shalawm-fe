@@ -2,6 +2,7 @@ import { AdminPage } from "@/pages/admin";
 import { HomePage } from "@/pages/home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootLayout } from "./layout";
+import { BatchPage } from "@/pages/batch";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "batch",
+        element: <BatchPage />,
       },
       {
         path: "admin",

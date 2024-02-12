@@ -30,7 +30,7 @@ export const DropZone = ({ onFileAdd }: Props) => {
         <p>Drop the files here ...</p>
       ) : (
         <p className="text-center">
-          Drag 'n' drop some files here, or click to select files
+          Drag 'n' drop some file(s) here, or click to select file(s)
         </p>
       )}
     </div>
