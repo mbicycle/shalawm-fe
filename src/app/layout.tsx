@@ -158,7 +158,7 @@ const TopBar = ({ className }: { className?: string }) => (
 );
 
 export const RootLayout = () => (
-  <div className="h-[100dvh] flex flex-col lg:flex-row bg-primary font-open">
+  <div className="h-[100dvh] w-[100dvw] flex flex-col lg:flex-row bg-primary font-open">
     <SideBar className="hidden lg:block" />
     <TopBar className="flex lg:hidden" />
     <main className="grow overflow-auto">
