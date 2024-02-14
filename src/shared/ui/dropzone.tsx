@@ -4,8 +4,9 @@ import { useDropzone } from "react-dropzone";
 
 type Props = {
   onFileAdd: (file: File[]) => void;
+  batch?: boolean;
 };
-export const DropZone = ({ onFileAdd }: Props) => {
+export const DropZone = ({ onFileAdd, batch }: Props) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     onFileAdd(acceptedFiles);
   }, []);
@@ -25,12 +26,18 @@ export const DropZone = ({ onFileAdd }: Props) => {
         }
       )}
     >
-      <input {...getInputProps()} />
+      <input
+        {...getInputProps()}
+        multiple={!batch}
+        accept={batch ? ".txt" : ".pdf"}
+      />
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
         <p className="text-center">
-          Drag 'n' drop some file(s) here, or click to select file(s)
+          {batch
+            ? `Drag 'n' drop .txt file here, or click to select file`
+            : `Drag 'n' drop some file(s) here, or click to select file(s)`}
         </p>
       )}
     </div>

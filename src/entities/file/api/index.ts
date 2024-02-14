@@ -13,6 +13,19 @@ export const uploadFiles = ({ files }: { files: File[] }) => {
   });
 };
 
+export const processBatch = ({ file }: { file: File }) => {
+  const formData = new FormData();
+  formData.append("file_with_user_prompts", file);
+  return instance
+    .post("/chat/process-user-prompts/", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Accept: "application/json",
+      },
+    })
+    .then((response) => response);
+};
+
 export const removeExistingFiles = () =>
   instance.post("/files/remove-existing-files/");
 
