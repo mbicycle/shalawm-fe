@@ -17,18 +17,7 @@ export const BatchPage = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: processBatch,
-    onSuccess: (response) => {
-      console.log(response);
-      const fileURL = window.URL.createObjectURL(new Blob([response.data]));
-      const fileLink = document.createElement("a");
-      fileLink.href = fileURL;
-      fileLink.setAttribute(
-        "download",
-        `${files[0].name.slice(0, -4) + "_response"}.xlsx`
-      );
-      document.body.appendChild(fileLink);
-      fileLink.click();
-      document.body.removeChild(fileLink);
+    onSuccess: () => {
       enqueueSnackbar("File has been proccessed successfully!", {
         variant: "success",
       });

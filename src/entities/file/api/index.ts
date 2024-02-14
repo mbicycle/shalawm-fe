@@ -18,12 +18,21 @@ export const processBatch = ({ file }: { file: File }) => {
   formData.append("file_with_user_prompts", file);
   return instance
     .post("/chat/process-user-prompts/", formData, {
+      responseType: "blob",
       headers: {
         "Content-Type": "multipart/form-data",
         Accept: "application/json",
       },
     })
-    .then((response) => response);
+    .then((response) => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", `${file.name.slice(0, -4)}_response.xlsx`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
 };
 
 export const removeExistingFiles = () =>
