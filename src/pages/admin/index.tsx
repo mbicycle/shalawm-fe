@@ -6,7 +6,7 @@ export const AdminPage = () => {
   return (
     <div className="w-full h-full flex flex-col items-center gap-6 p-8 max-w-3xl mx-auto text-white justify-center">
       <UploadFiles />
-      <div className="flex items-center gap-4 ">
+      <div className="flex items-center gap-4 flex-wrap justify-center ">
         <UpdateKnowledgeDatabase />
         <RemoveFiles />
       </div>
